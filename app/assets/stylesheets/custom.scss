@@ -52,20 +52,90 @@ p {
 
 /* ヘッダー */
 
+#header {
+  background-color: teal;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  font-style: italic;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  color: silver;
   text-decoration: none;
+}
+
+li.header-list a, .dropdown-toggle {
+  background-color: teal !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.header-list a:hover, .dropdown-toggle:hover {
+  color: silver !important;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+li .dropdown-header {
+  background-color: rgba(200,200,200,0.5);
+  font-weight: bold;
+}
+
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  color: #777777;
+  white-space: nowrap;
+}
+
+/* 本体 */
+
+#top-main {
+  background-color: rgba(255,255,255,0);
+}
+
+#top-main-title {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.label-form {
+  margin-top: 5px;
+}
+
+.btn-form {
+  margin-top: 10px;
 }
 
 /* デバッグウインドウ */
