@@ -1,0 +1,24 @@
+<% provide(:title, "New Task") %>
+<div class="container">
+      
+  <h1>タスク新規作成</h1>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_tag user_tasks_path do %>
+
+          <%= render 'shared/task_error_messages' %>
+
+          <label class="label-form" for="task_name">名称</label>
+          <input class="form-control" type="text" name="name" value="<%= @task.name %>" >
+
+          <label class="label-form" for="task_description">詳細</label>
+          <textarea rows="5" class="form-control" name="description"><%= @task.description %></textarea>
+
+          <input type="submit" name="commit" value="新規登録" class="btn btn-lg btn-primary btn-form" data-disable-with="新規登録">
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

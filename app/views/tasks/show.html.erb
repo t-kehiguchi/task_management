@@ -1,0 +1,45 @@
+<% provide(:title, current_user.name) %>
+<div class="container">
+      
+  <h1>タスク詳細</h1>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-bordered" id="table-task">
+        <tbody>
+          <tr>
+            <th class="active col-md-2">ID</th>
+            <td class="col-md-10"><%= @task.id %></td>
+          </tr>
+          <tr>
+            <th class="active">名称</th>
+            <td><%= @task.name %></td>
+          </tr>
+          <tr>
+            <th class="active">詳細</th>
+            <td>
+              <% if isUrl?(@task.description) %>
+                <%= link_to @task.description, @task.description %>
+              <% else %>
+                <%= @task.description %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th class="active">作成日</th>
+            <td><%= @task.created_at.strftime("%Y/%-m/%-d %H:%M") %></td>
+          </tr>
+          <tr>
+            <th class="active">更新日</th>
+            <td><%= @task.updated_at.strftime("%Y/%-m/%-d %H:%M") %></td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <div>
+        <%= link_to "編集", edit_user_task_path(@task.user_id, @task.id), class: "btn btn-lg btn-success" %>
+        <%= link_to "削除", user_task_path(@task.user_id, @task.id), method: :delete, data: { confirm: deleteConfirm(@task.name) } , class: "btn btn-lg btn-danger" %>
+      </div>
+    </div>    
+  </div>
+</div>

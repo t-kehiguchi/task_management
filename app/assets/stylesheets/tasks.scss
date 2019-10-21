@@ -1,0 +1,15 @@
+// タスク詳細
+#table-task {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#table-task th {
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#table-task td {
+  word-wrap: break-word;
+}

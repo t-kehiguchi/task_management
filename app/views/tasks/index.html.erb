@@ -1,0 +1,32 @@
+<% provide(:title, current_user.name) %>
+<div class="container">
+      
+  <h1><%= current_user.name %>のタスク一覧</h1>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= link_to "タスク新規作成", new_user_task_path(current_user.id), class: "btn btn-lg btn-primary pull-right" %>
+      <table class="table table-hover" id="table-tasks">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>作成日</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= link_to task.name, user_task_path(task.user_id, task.id) %></td>
+              <td><%= task.created_at.strftime("%Y/%-m/%-d %H:%M") %></td>
+              <td>
+                <%= link_to "編集" , edit_user_task_path(task.user_id, task.id), class: "btn btn-success" %>
+                <%= link_to "削除", user_task_path(task.user_id, task.id), method: :delete, data: { confirm: deleteConfirm(task.name) } , class: "btn btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
