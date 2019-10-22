@@ -1,0 +1,33 @@
+// ユーザー詳細
+#table-user {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#table-user th {
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+}
+
+// ユーザー編集
+.user-table {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.label-signup {
+  margin-top: 5px;
+}
+
+.btn-signup {
+  margin-top: 10px;
+}
+
+.label-user--edit {
+  margin-top: 5px;
+}
+
+.btn-user--edit {
+  margin-top: 10px;
+}
