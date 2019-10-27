@@ -1,5 +1,8 @@
 class TasksController < ApplicationController
 
+  before_action :logged_in_user, only: [:new, :index, :show, :edit]
+  before_action :correct_user, only: [:new, :index, :show, :edit]
+
   def new
     @task = Task.new
   end
@@ -13,7 +16,7 @@ class TasksController < ApplicationController
       render :new
     end
   end
-  
+
   def index
     @user = User.find(params[:user_id])
     @tasks = @user.tasks.order(id: "DESC")
@@ -45,5 +48,22 @@ class TasksController < ApplicationController
     flash[:success] = "タスクを削除しました！"
     redirect_to user_tasks_url(@task.user_id, @task.id)
   end
+
+  private
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = 'ログインしてください。'
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:user_id])
+      unless @user == current_user
+        flash[:danger] = "編集権限がありません。"
+        redirect_to user_tasks_url current_user
+      end
+    end
 
 end
